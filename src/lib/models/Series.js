@@ -1,15 +1,14 @@
-export default class Movie {
+export default class Series {
     constructor(obj, genres){
-        this._adult = obj.adult;
-        this._backdrop_path = obj.backdrop_path;
         this._id = obj.id;
+        this._backdrop_path = obj.backdrop_path;
         this._original_language = obj.original_language;
+        this._origin_country = obj.origin_country;
         this._overview = obj.overview;
         this._popularity = obj.popularity;
         this._poster_path = obj.poster_path;
-        this._release_date = obj.release_date;
-        this._title = obj.title;
-        this._video = obj.video;
+        this._release_date = obj.first_air_date;
+        this._title = obj.name;
         this._vote_average = obj.vote_average;
         this._vote_count = obj.vote_count;
         this._genre_ids = obj.genre_ids;
@@ -20,12 +19,12 @@ export default class Movie {
         return this._adult;
     }
 
-    get background() {
-        return this._backdrop_path;
-    }
-
     get genres(){
         return this._genre_ids.map((__id)=>{return this._genres[__id]}).join(" | ");
+    }
+
+    get background() {
+        return this._backdrop_path;
     }
 
     get id() {
@@ -34,6 +33,10 @@ export default class Movie {
 
     get originalLanguage() {
         return this._original_language;
+    }
+
+    get originalCountry() {
+        return this._origin_country;
     }
 
     get overview() {
@@ -58,10 +61,6 @@ export default class Movie {
 
     get type() {
         return this._type;
-    }
-
-    get video() {
-        return this._video;
     }
 
     get voteAverage() {

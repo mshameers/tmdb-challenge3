@@ -1,4 +1,5 @@
 import {Lightning, Utils, Router} from "wpe-lightning-sdk";
+import {PAGES as PAGES} from '../lib/routes'
 
 export default class Splash extends Lightning.Component{
     static _template() {
@@ -45,18 +46,10 @@ export default class Splash extends Lightning.Component{
         this._spinnerAnimation = this.animation({duration: 1, repeat: -1, actions: [
             {t: 'Spinner', p: "rotation", sm: 0, v:{sm:0, 0:0, 1: Math.PI * 2} }
         ]});
-
-        /**
-         * @todo:
-         * Add _handleEnter(){}
-         * and on enter call Router.navigate("movies")
-         * to navigate to the correct route.
-         */
-
     }
 
     _handleEnter(){
-        Router.navigate("movies")
+        Router.navigate(PAGES.MOVIES)
     }
 
     _active() {
